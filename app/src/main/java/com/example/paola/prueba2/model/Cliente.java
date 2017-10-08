@@ -4,20 +4,35 @@ import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
 
+/**
+ * Created by Paola on 08/10/2017.
+ */
+
 @Entity
-public class Cliente  {
+public class Cliente {
 
     @Id(autoincrement = true)
     private Long codigo;
     private String nombre;
-    private String apellido;
+    private String apellidos;
+
+    @Generated(hash = 826759515)
+    public Cliente(Long codigo, String nombre, String apellidos) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+    }
+
+    @Generated(hash = 1805939709)
+    public Cliente() {
+    }
 
     @Override
     public String toString() {
         return "Cliente{" +
                 "codigo=" + codigo +
                 ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
+                ", apellidos='" + apellidos + '\'' +
                 '}';
     }
 
@@ -37,21 +52,11 @@ public class Cliente  {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public Cliente() {
-    }
-
-    @Generated(hash = 201220889)
-    public Cliente(Long codigo, String nombre, String apellido) {
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.apellido = apellido;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 }

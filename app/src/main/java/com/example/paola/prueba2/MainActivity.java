@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
+
 import com.example.paola.prueba2.model.Cliente;
 import com.example.paola.prueba2.model.DaoSession;
 
@@ -18,12 +19,11 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    private DaoSession daoSession;
 
     @BindView(R.id.Et_nombre) EditText EtNombre;
     @BindView(R.id.Et_apellido) EditText EtApellido;
     @BindView(R.id.Bt_aceptar) Button BtAceptar;
-
-    private DaoSession daoSession;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,19 +37,19 @@ public class MainActivity extends AppCompatActivity {
         //Registrando
         Cliente cliente1 = new Cliente();
         cliente1.setNombre("Abel");
-        cliente1.setApellido("Vasquez");
+        cliente1.setApellidos("Vasquez");
 
         daoSession.getClienteDao().insert(cliente1);
 
         Cliente cliente2 = new Cliente();
         cliente2.setNombre("Aldo");
-        cliente2.setApellido("Perez");
+        cliente2.setApellidos("Perez");
 
         daoSession.getClienteDao().insert(cliente2);
 
         Cliente cliente3 = new Cliente();
         cliente3.setNombre("Juan");
-        cliente3.setApellido("Gomez");
+        cliente3.setApellidos("Gomez");
 
         daoSession.getClienteDao().insert(cliente3);
 
@@ -61,15 +61,14 @@ public class MainActivity extends AppCompatActivity {
             Log.i(TAG,c.toString());
         }
 
+        daoSession.getClienteDao().delete(cliente3);
+        Long b = daoSession.getClienteDao().count();
+        Log.i(TAG,"Numero de clientes: "+b);
+
     }
 
     @OnClick(R.id.Bt_aceptar)
     public void onViewClicked() {
-
-
-
-
-
 
     }
 }
