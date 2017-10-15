@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/Bt_Agregar"
+        android:layout_centerHorizontal="true"
+        android:text="AGREGAR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="12dp"
+        android:id="@+id/rv_cliente"
+        android:layout_below="@+id/Bt_Agregar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        />
+
+</RelativeLayout>

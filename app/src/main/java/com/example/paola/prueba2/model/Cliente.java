@@ -1,5 +1,8 @@
 package com.example.paola.prueba2.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
@@ -9,7 +12,7 @@ import org.greenrobot.greendao.annotation.Generated;
  */
 
 @Entity
-public class Cliente {
+public class Cliente implements Parcelable {
 
     @Id(autoincrement = true)
     private Long codigo;
@@ -23,9 +26,9 @@ public class Cliente {
         this.apellidos = apellidos;
     }
 
-    @Generated(hash = 1805939709)
     public Cliente() {
     }
+
 
     @Override
     public String toString() {
@@ -59,4 +62,34 @@ public class Cliente {
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(this.codigo);
+        dest.writeString(this.nombre);
+        dest.writeString(this.apellidos);
+    }
+
+    protected Cliente(Parcel in) {
+        this.codigo = (Long) in.readValue(Long.class.getClassLoader());
+        this.nombre = in.readString();
+        this.apellidos = in.readString();
+    }
+
+    public static final Parcelable.Creator<Cliente> CREATOR = new Parcelable.Creator<Cliente>() {
+        @Override
+        public Cliente createFromParcel(Parcel source) {
+            return new Cliente(source);
+        }
+
+        @Override
+        public Cliente[] newArray(int size) {
+            return new Cliente[size];
+        }
+    };
 }

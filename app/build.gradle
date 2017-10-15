@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'org.greenrobot.greendao' //agrego
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
@@ -19,7 +19,7 @@ android {
     }
 }
 
-greendao{
+greendao{   //agrego
     schemaVersion 1
 }
 
@@ -29,11 +29,12 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile 'org.greenrobot:greendao:3.2.2'
+    compile 'org.greenrobot:greendao:3.2.2' //agrego
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-
+    compile 'com.android.support:recyclerview-v7:26.+'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+
 }

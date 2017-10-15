@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="5dp"
-    tools:context="com.example.paola.prueba2.MainActivity">
+    tools:context="com.example.paola.prueba2.FormularioClienteActivity">
 
     <EditText
         android:id="@+id/Et_nombre"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/Bt_aceptar"
+        android:id="@+id/Bt_accion"
         android:text="ACEPTAR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
